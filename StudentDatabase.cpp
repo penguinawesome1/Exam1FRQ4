@@ -16,7 +16,6 @@ StudentDatabase::StudentDatabase(const StudentDatabase &other) {
     Student *other_student = other.students_[i];
 
     Student *temp = new Student(*other_student);
-    delete student;
     student = temp;
   }
 }
@@ -48,7 +47,6 @@ StudentDatabase::StudentDatabase(const StudentDatabase &&other) noexcept {
     Student *other_student = other.students_[i];
 
     Student *temp = new Student(*other_student);
-    delete student;
     student = temp;
 
     delete other_student;
