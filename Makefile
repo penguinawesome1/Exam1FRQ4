@@ -1,2 +1,2 @@
 build:
-	g++ -Wall -Wextra -Werror -o out src/*.cpp
+	g++ -Wall -Wextra -Werror -o out *.cpp

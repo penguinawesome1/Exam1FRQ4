@@ -132,7 +132,7 @@ void loadFromFile(const std::string &filename) {
   Student *last_student = nullptr;
 
   while (!in.eof()) {
-    char *str;
+    char *str = nullptr;
     in.getline(str, ' ');
 
     int num = 0;
