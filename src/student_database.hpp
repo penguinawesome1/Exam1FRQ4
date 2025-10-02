@@ -1,3 +1,5 @@
+#pragma once
+
 #include "student.hpp"
 #include <array>
 

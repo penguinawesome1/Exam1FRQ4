@@ -8,7 +8,7 @@ StudentDatabase::~StudentDatabase() {
   }
 }
 
-explicit StudentDatabase::StudentDatabase(const StudentDatabase &other) {
+StudentDatabase::StudentDatabase(const StudentDatabase &other) {
   size_t other_students_size = other.students_.size();
 
   for (size_t i = 0; i < other_students_size; i++) {
@@ -40,8 +40,7 @@ StudentDatabase &StudentDatabase::operator=(const StudentDatabase &other) {
   return *this;
 }
 
-explicit StudentDatabase::StudentDatabase(
-    const StudentDatabase &&other) noexcept {
+StudentDatabase::StudentDatabase(const StudentDatabase &&other) noexcept {
   size_t other_students_size = other.students_.size();
 
   for (size_t i = 0; i < other_students_size; i++) {
