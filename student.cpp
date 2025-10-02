@@ -1,4 +1,4 @@
-#include "student.hpp"
+#include "Student.hpp"
 
 void Student::addScore(int score) { scores_.push_back(score); }
 
