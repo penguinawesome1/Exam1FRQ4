@@ -9,7 +9,7 @@ double Student::average() const {
     total += score;
   }
 
-  return total / scores_.size();
+  return total / static_cast<double>(scores_.size());
 }
 
 const std::string &Student::getName() const { return name_; }

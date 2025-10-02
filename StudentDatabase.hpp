@@ -1,6 +1,6 @@
 #pragma once
 
-#include "student.hpp"
+#include "Student.hpp"
 #include <array>
 
 class StudentDatabase {
