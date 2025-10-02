@@ -120,7 +120,7 @@ void StudentDatabase::saveToFile(const std::string &filename) {
   }
 }
 
-void loadFromFile(const std::string &filename) {
+void StudentDatabase::loadFromFile(const std::string &filename) {
   std::ifstream in(filename);
 
   if (!in) {
