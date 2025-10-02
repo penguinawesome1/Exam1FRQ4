@@ -129,7 +129,7 @@ void StudentDatabase::loadFromFile(const std::string &filename) {
   }
 
   int last_num = 0;
-  Student *last_student = nullptr;
+  Student *last_student;
 
   while (!in.eof()) {
     char *str = nullptr;
@@ -144,6 +144,9 @@ void StudentDatabase::loadFromFile(const std::string &filename) {
 
       last_num = num;
     } catch (...) { // given a str for name
+      if (last_student) {
+        addStudent(*last_student);
+      }
       Student *student = new Student(str, last_num);
       last_student = student;
     }
