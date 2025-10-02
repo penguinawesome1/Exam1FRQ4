@@ -2,6 +2,10 @@
 #include <fstream>
 #include <iostream>
 
+StudentDatabase::StudentDatabase() : students_(std::array<Student *, 100>()) {
+  students_.fill(nullptr);
+}
+
 StudentDatabase::~StudentDatabase() {
   for (Student *student : students_) {
     delete student;
@@ -16,6 +20,7 @@ StudentDatabase::StudentDatabase(const StudentDatabase &other) {
     Student *other_student = other.students_[i];
 
     Student *temp = new Student(*other_student);
+    delete student;
     student = temp;
   }
 }
@@ -47,6 +52,7 @@ StudentDatabase::StudentDatabase(const StudentDatabase &&other) noexcept {
     Student *other_student = other.students_[i];
 
     Student *temp = new Student(*other_student);
+    delete student;
     student = temp;
 
     delete other_student;

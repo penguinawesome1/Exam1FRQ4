@@ -5,7 +5,7 @@
 
 class StudentDatabase {
 public:
-  StudentDatabase() : students_(std::array<Student *, 100>()){};
+  StudentDatabase();
   ~StudentDatabase();
   explicit StudentDatabase(const StudentDatabase &other);
   StudentDatabase &operator=(const StudentDatabase &other);
