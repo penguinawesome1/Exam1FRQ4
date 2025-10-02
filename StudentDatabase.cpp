@@ -9,6 +9,7 @@ StudentDatabase::StudentDatabase() : students_(std::array<Student *, 100>()) {
 StudentDatabase::~StudentDatabase() {
   for (Student *student : students_) {
     delete student;
+    student = nullptr;
   }
 }
 
@@ -16,12 +17,7 @@ StudentDatabase::StudentDatabase(const StudentDatabase &other) {
   size_t other_students_size = other.students_.size();
 
   for (size_t i = 0; i < other_students_size; i++) {
-    Student *student = students_[i];
-    Student *other_student = other.students_[i];
-
-    Student *temp = new Student(*other_student);
-    delete student;
-    student = temp;
+    students_[i] = new Student(*other.students_[i]);
   }
 }
 
@@ -33,12 +29,7 @@ StudentDatabase &StudentDatabase::operator=(const StudentDatabase &other) {
   size_t other_students_size = other.students_.size();
 
   for (size_t i = 0; i < other_students_size; i++) {
-    Student *student = students_[i];
-    Student *other_student = other.students_[i];
-
-    Student *temp = new Student(*other_student);
-    delete student;
-    student = temp;
+    students_[i] = new Student(*other.students_[i]);
   }
 
   return *this;
@@ -51,9 +42,7 @@ StudentDatabase::StudentDatabase(const StudentDatabase &&other) noexcept {
     Student *student = students_[i];
     Student *other_student = other.students_[i];
 
-    Student *temp = new Student(*other_student);
-    delete student;
-    student = temp;
+    student = new Student(*other_student);
 
     delete other_student;
     other_student = nullptr;
@@ -78,6 +67,7 @@ StudentDatabase::operator=(const StudentDatabase &&other) noexcept {
 
     delete other_student;
     other_student = nullptr;
+    temp = nullptr;
   }
 
   return *this;
