@@ -98,7 +98,7 @@ Student *StudentDatabase::findById(int id) {
   for (size_t i = 0; i < students_size; i++) {
     Student *student = students_[i];
 
-    if (student->getId() == id) {
+    if (student && student->getId() == id) {
       return student;
     }
   }
