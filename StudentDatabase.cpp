@@ -140,7 +140,9 @@ void StudentDatabase::loadFromFile(const std::string &filename) {
     try {
       num = std::stoi(str);
 
-      last_student->addScore(last_num);
+      if (last_student) {
+        last_student->addScore(last_num);
+      }
 
       last_num = num;
     } catch (...) { // given a str for name
